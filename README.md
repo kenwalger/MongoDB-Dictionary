@@ -1,6 +1,6 @@
 # MongoDB-Dictionary  
 
-![MongoDB Logo](https://webassets.mongodb.com/_com_assets/cms/mongodb-logo-rgb-j6w271g1xn.jpg)
+![MongoDB Logo](https://webassets.mongodb.com/_com_assets/cms/mongodb-logo-rgb-j6w271g1xn.jpg =200px)
 
 Follow [@kenwalger](https://www.twitter.com/kenwalger) for updates
 
