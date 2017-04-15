@@ -1,0 +1,16 @@
+{
+    "LaunchRequest": 
+    {
+        "ask":"Welcome to MongoDB. What would you like to know?",
+        "reprompt": "What would you like to know?"
+    },
+    "AMAZON.HelpIntent":
+    {
+        "ask": "Here are some things you can say: What is the definition of a compound index? Or what is the definition of a collection? What would you like to know?",
+        "reprompt": "What would you like to know?"
+    },
+    "AMAZON.StopIntent":
+    {
+        "tell": "Keep up the Giant ideas!"
+    }
+}
