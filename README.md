@@ -16,5 +16,8 @@ Follow [@kenwalger](https://www.twitter.com/kenwalger) for updates
 - Alexa, ask MongoDB what is the definition of a collection.
 - Alexa, ask MongoDB for the definition of a sharded collection.
 
+It works with the vast majority of the terms in the [MongoDB Glossary](https://docs.mongodb.com/manual/reference/glossary/)
+for version 3.4 of MongoDB.
+
 
 
