@@ -1,49 +1,166 @@
-var Alexa = require('alexa-sdk');
-const https = require('https');
+'use strict';
+
+const Alexa = require('ask-sdk-core');
 const definitions = require('./definitions.json');
 const responses = require('./responses.json');
 
-const keyFromSlot = slot => key => key.toUpperCase() === slot.toUpperCase();
+const normalizedDefinitions = new Map(
+  Object.entries(definitions).map(([term, definition]) => [
+    normalizeTerm(term),
+    { term, definition }
+  ])
+);
 
-const handlers = {
-    'LaunchRequest': function () {
-        this.emit(':ask', responses.LaunchRequest.ask, responses.LaunchRequest.reprompt);
-    },
-    'AMAZON.HelpIntent': function () {
-        this.emit(':ask', responses["AMAZON.HelpIntent"].ask, responses["AMAZON.HelpIntent"].reprompt);
-    },
-    'AMAZON.StopIntent': function () {
-        this.emit(':tell', responses["AMAZON.StopIntent"].tell);
-    },
-    'AMAZON.CancelIntent': function () {
-        this.emit('AMAZON.StopIntent');
-    },
-    'SessionEndedRequest': function () {
-        this.emit('AMAZON.StopIntent');
-    },
-    'Unhandled': function () {
-        this.emit('AMAZON.HelpIntent');
-    },
-    'GetDefinition': function () {
-        var slot = this.event.request.intent.slots.Term.value;
-        if (slot) {
-            var term = Object.keys(definitions).find(keyFromSlot(slot));
+function normalizeTerm(value = '') {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[._-]+/g, ' ')
+    .replace(/\s+/g, ' ');
+}
 
-            const definition = definitions[term];
-            if (definition) {
-                this.emit(":tellWithCard", definition, term, definition);
-            } else {
-                this.emit(":tell", "I'm sorry, I don't know the definition of " + slot + ". Please try again.");
-            }
-        } else {
-            this.emit(":ask", "You need to provide a term. " + responses["AMAZON.HelpIntent"].reprompt, responses["AMAZON.HelpIntent"].reprompt);
-        }
+function getCanonicalSlotValue(slot) {
+  const authorities = slot?.resolutions?.resolutionsPerAuthority ?? [];
 
+  for (const authority of authorities) {
+    const value = authority?.values?.[0]?.value?.name;
+    if (value) {
+      return value;
     }
+  }
+
+  return slot?.value;
+}
+
+const LaunchRequestHandler = {
+  canHandle(handlerInput) {
+    return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
+  },
+  handle(handlerInput) {
+    return handlerInput.responseBuilder
+      .speak(responses.LaunchRequest.ask)
+      .reprompt(responses.LaunchRequest.reprompt)
+      .getResponse();
+  }
 };
 
-exports.handler = function (event, context, callback) {
-    var alexa = Alexa.handler(event, context);
-    alexa.registerHandlers(handlers);
-    alexa.execute();
+const GetDefinitionIntentHandler = {
+  canHandle(handlerInput) {
+    return (
+      Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
+      Alexa.getIntentName(handlerInput.requestEnvelope) === 'GetDefinition'
+    );
+  },
+  handle(handlerInput) {
+    const slot = handlerInput.requestEnvelope.request.intent?.slots?.Term;
+    const spokenTerm = getCanonicalSlotValue(slot);
+
+    if (!spokenTerm) {
+      return handlerInput.responseBuilder
+        .speak(`You need to provide a MongoDB term. ${responses['AMAZON.HelpIntent'].reprompt}`)
+        .reprompt(responses['AMAZON.HelpIntent'].reprompt)
+        .getResponse();
+    }
+
+    const match = normalizedDefinitions.get(normalizeTerm(spokenTerm));
+
+    if (!match) {
+      return handlerInput.responseBuilder
+        .speak(`I'm sorry, I don't know the definition of ${spokenTerm}. Please try another MongoDB term.`)
+        .getResponse();
+    }
+
+    return handlerInput.responseBuilder
+      .speak(match.definition)
+      .withSimpleCard(match.term, match.definition)
+      .getResponse();
+  }
+};
+
+const HelpIntentHandler = {
+  canHandle(handlerInput) {
+    return (
+      Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
+      Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent'
+    );
+  },
+  handle(handlerInput) {
+    return handlerInput.responseBuilder
+      .speak(responses['AMAZON.HelpIntent'].ask)
+      .reprompt(responses['AMAZON.HelpIntent'].reprompt)
+      .getResponse();
+  }
+};
+
+const CancelAndStopIntentHandler = {
+  canHandle(handlerInput) {
+    if (Alexa.getRequestType(handlerInput.requestEnvelope) !== 'IntentRequest') {
+      return false;
+    }
+
+    const intentName = Alexa.getIntentName(handlerInput.requestEnvelope);
+    return intentName === 'AMAZON.CancelIntent' || intentName === 'AMAZON.StopIntent';
+  },
+  handle(handlerInput) {
+    return handlerInput.responseBuilder
+      .speak(responses['AMAZON.StopIntent'].tell)
+      .getResponse();
+  }
+};
+
+const FallbackIntentHandler = {
+  canHandle(handlerInput) {
+    return (
+      Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
+      Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent'
+    );
+  },
+  handle(handlerInput) {
+    return handlerInput.responseBuilder
+      .speak(responses['AMAZON.HelpIntent'].ask)
+      .reprompt(responses['AMAZON.HelpIntent'].reprompt)
+      .getResponse();
+  }
+};
+
+const SessionEndedRequestHandler = {
+  canHandle(handlerInput) {
+    return Alexa.getRequestType(handlerInput.requestEnvelope) === 'SessionEndedRequest';
+  },
+  handle(handlerInput) {
+    console.log(`Session ended: ${JSON.stringify(handlerInput.requestEnvelope.request)}`);
+    return handlerInput.responseBuilder.getResponse();
+  }
+};
+
+const ErrorHandler = {
+  canHandle() {
+    return true;
+  },
+  handle(handlerInput, error) {
+    console.error(`Unhandled error: ${error.stack || error}`);
+
+    return handlerInput.responseBuilder
+      .speak('Sorry, I had trouble looking up that MongoDB term. Please try again.')
+      .reprompt(responses['AMAZON.HelpIntent'].reprompt)
+      .getResponse();
+  }
+};
+
+const skill = Alexa.SkillBuilders.custom()
+    .addRequestHandlers(
+        LaunchRequestHandler,
+        GetDefinitionIntentHandler,
+        HelpIntentHandler,
+        CancelAndStopIntentHandler,
+        FallbackIntentHandler,
+        SessionEndedRequestHandler
+    )
+    .addErrorHandlers(ErrorHandler)
+    .create();
+
+exports.skill = skill;
+
+exports.handler = async (event, context) => {
+  return skill.invoke(event, context);
 };

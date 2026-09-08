@@ -1,0 +1,2070 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "mongo d b dictionary",
+      "intents": [
+        {
+          "name": "GetDefinition",
+          "slots": [
+            {
+              "name": "Term",
+              "type": "MONGODB_TERM"
+            }
+          ],
+          "samples": [
+            "what is {Term}",
+            "what is a {Term}",
+            "what is an {Term}",
+            "define {Term}",
+            "define a {Term}",
+            "define an {Term}",
+            "what does {Term} mean",
+            "tell me about {Term}",
+            "give me the definition of {Term}",
+            "give me a definition of {Term}",
+            "what is the definition of {Term}"
+          ]
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        }
+      ],
+      "types": [
+        {
+          "name": "MONGODB_TERM",
+          "values": [
+            {
+              "id": "ACCUMULATOR",
+              "name": {
+                "value": "accumulator"
+              }
+            },
+            {
+              "id": "ACTION",
+              "name": {
+                "value": "action"
+              }
+            },
+            {
+              "id": "ADMIN_DATABASE",
+              "name": {
+                "value": "admin database"
+              }
+            },
+            {
+              "id": "ADVANCED_PERSISTENT_THREAT",
+              "name": {
+                "value": "advanced persistent threat"
+              }
+            },
+            {
+              "id": "AGGREGATION",
+              "name": {
+                "value": "aggregation"
+              }
+            },
+            {
+              "id": "AGGREGATION_PIPELINE",
+              "name": {
+                "value": "aggregation pipeline"
+              }
+            },
+            {
+              "id": "ALERT",
+              "name": {
+                "value": "alert"
+              }
+            },
+            {
+              "id": "ANALYTICS_NODE",
+              "name": {
+                "value": "analytics node"
+              }
+            },
+            {
+              "id": "ANN_SEARCH",
+              "name": {
+                "value": "ANN search"
+              }
+            },
+            {
+              "id": "API",
+              "name": {
+                "value": "API"
+              }
+            },
+            {
+              "id": "APPROXIMATE_NEAREST_NEIGHBOR_SEARCH",
+              "name": {
+                "value": "approximate nearest neighbor search"
+              }
+            },
+            {
+              "id": "ARBITER",
+              "name": {
+                "value": "arbiter"
+              }
+            },
+            {
+              "id": "ATLAS",
+              "name": {
+                "value": "Atlas"
+              }
+            },
+            {
+              "id": "ATLAS_SEARCH",
+              "name": {
+                "value": "Atlas Search",
+                "synonyms": [
+                  "MongoDB Search"
+                ]
+              }
+            },
+            {
+              "id": "ATLAS_USER",
+              "name": {
+                "value": "Atlas user"
+              }
+            },
+            {
+              "id": "ATLAS_USER_ROLE",
+              "name": {
+                "value": "Atlas user role"
+              }
+            },
+            {
+              "id": "ATLAS_VECTOR_SEARCH",
+              "name": {
+                "value": "Atlas Vector Search",
+                "synonyms": [
+                  "MongoDB Vector Search",
+                  "vector search"
+                ]
+              }
+            },
+            {
+              "id": "ATOMIC_OPERATION",
+              "name": {
+                "value": "atomic operation"
+              }
+            },
+            {
+              "id": "AUTHENTICATION",
+              "name": {
+                "value": "authentication"
+              }
+            },
+            {
+              "id": "AUTHORIZATION",
+              "name": {
+                "value": "authorization"
+              }
+            },
+            {
+              "id": "AUTO_SCALING",
+              "name": {
+                "value": "auto-scaling"
+              }
+            },
+            {
+              "id": "AUTOMATIC_ENCRYPTION",
+              "name": {
+                "value": "automatic encryption"
+              }
+            },
+            {
+              "id": "B_TREE",
+              "name": {
+                "value": "B-tree"
+              }
+            },
+            {
+              "id": "BACKUP",
+              "name": {
+                "value": "backup"
+              }
+            },
+            {
+              "id": "BACKUP_CURSOR",
+              "name": {
+                "value": "backup cursor"
+              }
+            },
+            {
+              "id": "BALANCER",
+              "name": {
+                "value": "balancer"
+              }
+            },
+            {
+              "id": "BIG_ENDIAN",
+              "name": {
+                "value": "big-endian"
+              }
+            },
+            {
+              "id": "BLOCKING_SORT",
+              "name": {
+                "value": "blocking sort"
+              }
+            },
+            {
+              "id": "BOUNDED_COLLECTION_SCAN",
+              "name": {
+                "value": "bounded collection scan"
+              }
+            },
+            {
+              "id": "BSON",
+              "name": {
+                "value": "BSON",
+                "synonyms": [
+                  "B S O N",
+                  "bee son"
+                ]
+              }
+            },
+            {
+              "id": "BSON_TYPES",
+              "name": {
+                "value": "BSON types"
+              }
+            },
+            {
+              "id": "C2C_SYNC",
+              "name": {
+                "value": "C2C sync",
+                "synonyms": [
+                  "C two C sync",
+                  "cluster to cluster sync"
+                ]
+              }
+            },
+            {
+              "id": "CAP_THEOREM",
+              "name": {
+                "value": "CAP theorem"
+              }
+            },
+            {
+              "id": "CAPPED_COLLECTION",
+              "name": {
+                "value": "capped collection"
+              }
+            },
+            {
+              "id": "CARDINALITY",
+              "name": {
+                "value": "cardinality"
+              }
+            },
+            {
+              "id": "CARTESIAN_PRODUCT",
+              "name": {
+                "value": "cartesian product"
+              }
+            },
+            {
+              "id": "CHECKSUM",
+              "name": {
+                "value": "checksum"
+              }
+            },
+            {
+              "id": "CHUNK",
+              "name": {
+                "value": "chunk"
+              }
+            },
+            {
+              "id": "CLIENT",
+              "name": {
+                "value": "client"
+              }
+            },
+            {
+              "id": "CLIENT_AFFINITY",
+              "name": {
+                "value": "client affinity"
+              }
+            },
+            {
+              "id": "CLOUD_BACKUPS",
+              "name": {
+                "value": "cloud backups"
+              }
+            },
+            {
+              "id": "CLUSTER",
+              "name": {
+                "value": "cluster"
+              }
+            },
+            {
+              "id": "CLUSTER_CLASS",
+              "name": {
+                "value": "cluster class"
+              }
+            },
+            {
+              "id": "CLUSTER_TIER",
+              "name": {
+                "value": "cluster tier"
+              }
+            },
+            {
+              "id": "CLUSTER_TO_CLUSTER_SYNC",
+              "name": {
+                "value": "cluster-to-cluster sync"
+              }
+            },
+            {
+              "id": "CLUSTERED_COLLECTION",
+              "name": {
+                "value": "clustered collection"
+              }
+            },
+            {
+              "id": "CMK",
+              "name": {
+                "value": "CMK",
+                "synonyms": [
+                  "C M K",
+                  "customer master key"
+                ]
+              }
+            },
+            {
+              "id": "COLLECTION",
+              "name": {
+                "value": "collection"
+              }
+            },
+            {
+              "id": "COLLECTION_SCAN",
+              "name": {
+                "value": "collection scan"
+              }
+            },
+            {
+              "id": "COMMIT",
+              "name": {
+                "value": "commit"
+              }
+            },
+            {
+              "id": "COMMIT_QUORUM",
+              "name": {
+                "value": "commit quorum"
+              }
+            },
+            {
+              "id": "COMPOUND_INDEX",
+              "name": {
+                "value": "compound index"
+              }
+            },
+            {
+              "id": "CONCURRENCY_CONTROL",
+              "name": {
+                "value": "concurrency control"
+              }
+            },
+            {
+              "id": "CONFIG_DATABASE",
+              "name": {
+                "value": "config database"
+              }
+            },
+            {
+              "id": "CONFIG_SERVER",
+              "name": {
+                "value": "config server"
+              }
+            },
+            {
+              "id": "CONFIG_SHARD",
+              "name": {
+                "value": "config shard"
+              }
+            },
+            {
+              "id": "CONNECTION_POOL",
+              "name": {
+                "value": "connection pool"
+              }
+            },
+            {
+              "id": "CONNECTION_STORM",
+              "name": {
+                "value": "connection storm"
+              }
+            },
+            {
+              "id": "CONTAINER",
+              "name": {
+                "value": "container"
+              }
+            },
+            {
+              "id": "CONTENTION_FACTOR",
+              "name": {
+                "value": "contention factor"
+              }
+            },
+            {
+              "id": "COSINE_SIMILARITY",
+              "name": {
+                "value": "cosine similarity"
+              }
+            },
+            {
+              "id": "CRUD",
+              "name": {
+                "value": "CRUD",
+                "synonyms": [
+                  "C R U D",
+                  "crud"
+                ]
+              }
+            },
+            {
+              "id": "CSV",
+              "name": {
+                "value": "CSV"
+              }
+            },
+            {
+              "id": "CURSOR",
+              "name": {
+                "value": "cursor"
+              }
+            },
+            {
+              "id": "CUSTOM_ROLE",
+              "name": {
+                "value": "custom role"
+              }
+            },
+            {
+              "id": "CUSTOMER_MASTER_KEY",
+              "name": {
+                "value": "Customer Master Key"
+              }
+            },
+            {
+              "id": "DAEMON",
+              "name": {
+                "value": "daemon"
+              }
+            },
+            {
+              "id": "DATA_DIRECTORY",
+              "name": {
+                "value": "data directory"
+              }
+            },
+            {
+              "id": "DATA_ENCRYPTION_KEY",
+              "name": {
+                "value": "Data Encryption Key"
+              }
+            },
+            {
+              "id": "DATA_EXPLORER",
+              "name": {
+                "value": "Data Explorer"
+              }
+            },
+            {
+              "id": "DATA_FEDERATION",
+              "name": {
+                "value": "Data Federation"
+              }
+            },
+            {
+              "id": "DATA_FILES",
+              "name": {
+                "value": "data files"
+              }
+            },
+            {
+              "id": "DATA_INGESTION_PIPELINE",
+              "name": {
+                "value": "data ingestion pipeline"
+              }
+            },
+            {
+              "id": "DATA_PARTITION",
+              "name": {
+                "value": "data partition"
+              }
+            },
+            {
+              "id": "DATA_CENTER_AWARENESS",
+              "name": {
+                "value": "data-center awareness"
+              }
+            },
+            {
+              "id": "DATABASE",
+              "name": {
+                "value": "database"
+              }
+            },
+            {
+              "id": "DATABASE_COMMAND",
+              "name": {
+                "value": "database command"
+              }
+            },
+            {
+              "id": "DATABASE_EXFILTRATION",
+              "name": {
+                "value": "database exfiltration"
+              }
+            },
+            {
+              "id": "DATABASE_PROFILER",
+              "name": {
+                "value": "database profiler"
+              }
+            },
+            {
+              "id": "DBPATH",
+              "name": {
+                "value": "dbpath"
+              }
+            },
+            {
+              "id": "DDL",
+              "name": {
+                "value": "DDL"
+              }
+            },
+            {
+              "id": "DEAD_LETTER_QUEUE",
+              "name": {
+                "value": "dead letter queue"
+              }
+            },
+            {
+              "id": "DEDICATED_CONFIG_SERVER",
+              "name": {
+                "value": "dedicated config server"
+              }
+            },
+            {
+              "id": "DEK",
+              "name": {
+                "value": "DEK",
+                "synonyms": [
+                  "D E K",
+                  "data encryption key"
+                ]
+              }
+            },
+            {
+              "id": "DENSE_VECTORS",
+              "name": {
+                "value": "dense vectors"
+              }
+            },
+            {
+              "id": "DEPLOYMENT",
+              "name": {
+                "value": "deployment"
+              }
+            },
+            {
+              "id": "DIMENSIONS",
+              "name": {
+                "value": "dimensions"
+              }
+            },
+            {
+              "id": "DOCUMENT",
+              "name": {
+                "value": "document"
+              }
+            },
+            {
+              "id": "DOLLAR_CMD",
+              "name": {
+                "value": "dollar cmd",
+                "synonyms": [
+                  "dollar c m d",
+                  "dollar command"
+                ]
+              }
+            },
+            {
+              "id": "DOT_NOTATION",
+              "name": {
+                "value": "dot notation"
+              }
+            },
+            {
+              "id": "DOTPRODUCT_SIMILARITY",
+              "name": {
+                "value": "dotProduct similarity"
+              }
+            },
+            {
+              "id": "DRAINING",
+              "name": {
+                "value": "draining"
+              }
+            },
+            {
+              "id": "DRIVER",
+              "name": {
+                "value": "driver"
+              }
+            },
+            {
+              "id": "DURABLE",
+              "name": {
+                "value": "durable"
+              }
+            },
+            {
+              "id": "ELECTABLE_NODE",
+              "name": {
+                "value": "electable node"
+              }
+            },
+            {
+              "id": "ELECTION",
+              "name": {
+                "value": "election"
+              }
+            },
+            {
+              "id": "EMBEDDING",
+              "name": {
+                "value": "embedding"
+              }
+            },
+            {
+              "id": "ENCRYPTION_KEY",
+              "name": {
+                "value": "encryption key"
+              }
+            },
+            {
+              "id": "ENDIANNESS",
+              "name": {
+                "value": "endianness"
+              }
+            },
+            {
+              "id": "ENVELOPE_ENCRYPTION",
+              "name": {
+                "value": "envelope encryption"
+              }
+            },
+            {
+              "id": "EUCLIDEAN_SIMILARITY",
+              "name": {
+                "value": "euclidean similarity"
+              }
+            },
+            {
+              "id": "EVENTUAL_CONSISTENCY",
+              "name": {
+                "value": "eventual consistency"
+              }
+            },
+            {
+              "id": "EXPLICIT_ENCRYPTION",
+              "name": {
+                "value": "explicit encryption"
+              }
+            },
+            {
+              "id": "EXPRESSION",
+              "name": {
+                "value": "expression"
+              }
+            },
+            {
+              "id": "FAILOVER",
+              "name": {
+                "value": "failover"
+              }
+            },
+            {
+              "id": "FIELD",
+              "name": {
+                "value": "field"
+              }
+            },
+            {
+              "id": "FIELD_PATH",
+              "name": {
+                "value": "field path"
+              }
+            },
+            {
+              "id": "FIREWALL",
+              "name": {
+                "value": "firewall"
+              }
+            },
+            {
+              "id": "FREE_TIER",
+              "name": {
+                "value": "Free Tier"
+              }
+            },
+            {
+              "id": "FSYNC",
+              "name": {
+                "value": "fsync"
+              }
+            },
+            {
+              "id": "GEOHASH",
+              "name": {
+                "value": "geohash"
+              }
+            },
+            {
+              "id": "GEOJSON",
+              "name": {
+                "value": "GeoJSON"
+              }
+            },
+            {
+              "id": "GEOSPATIAL",
+              "name": {
+                "value": "geospatial"
+              }
+            },
+            {
+              "id": "GLOBAL_CLUSTER",
+              "name": {
+                "value": "Global Cluster"
+              }
+            },
+            {
+              "id": "GLOBAL_WRITE_ZONE",
+              "name": {
+                "value": "global write zone"
+              }
+            },
+            {
+              "id": "GRIDFS",
+              "name": {
+                "value": "GridFS"
+              }
+            },
+            {
+              "id": "GROUP",
+              "name": {
+                "value": "group"
+              }
+            },
+            {
+              "id": "GROUP_ID",
+              "name": {
+                "value": "group ID"
+              }
+            },
+            {
+              "id": "HASHED_SHARD_KEY",
+              "name": {
+                "value": "hashed shard key"
+              }
+            },
+            {
+              "id": "HEALTH_MANAGER",
+              "name": {
+                "value": "health manager"
+              }
+            },
+            {
+              "id": "HEALTH_MANAGER_FACET",
+              "name": {
+                "value": "health manager facet"
+              }
+            },
+            {
+              "id": "HIDDEN_MEMBER",
+              "name": {
+                "value": "hidden member"
+              }
+            },
+            {
+              "id": "HIERARCHICAL_NAVIGABLE_SMALL_WORLDS_GRAPHS",
+              "name": {
+                "value": "Hierarchical Navigable Small Worlds graphs"
+              }
+            },
+            {
+              "id": "HIGH_AVAILABILITY",
+              "name": {
+                "value": "high availability"
+              }
+            },
+            {
+              "id": "HIGHEST_PRIORITY_REGION",
+              "name": {
+                "value": "Highest Priority region"
+              }
+            },
+            {
+              "id": "HNSW",
+              "name": {
+                "value": "HNSW",
+                "synonyms": [
+                  "H N S W",
+                  "hierarchical navigable small worlds"
+                ]
+              }
+            },
+            {
+              "id": "HYBRID_SEARCH",
+              "name": {
+                "value": "hybrid search"
+              }
+            },
+            {
+              "id": "IDEMPOTENT",
+              "name": {
+                "value": "idempotent"
+              }
+            },
+            {
+              "id": "IMPACT",
+              "name": {
+                "value": "Impact"
+              }
+            },
+            {
+              "id": "IN_MEMORY_SORT",
+              "name": {
+                "value": "in-memory sort"
+              }
+            },
+            {
+              "id": "IN_USE_ENCRYPTION",
+              "name": {
+                "value": "In-Use Encryption"
+              }
+            },
+            {
+              "id": "INDEX",
+              "name": {
+                "value": "index"
+              }
+            },
+            {
+              "id": "INDEX_BOUNDS",
+              "name": {
+                "value": "index bounds"
+              }
+            },
+            {
+              "id": "INDEXED_SORT",
+              "name": {
+                "value": "indexed sort"
+              }
+            },
+            {
+              "id": "INIT_SCRIPT",
+              "name": {
+                "value": "init script"
+              }
+            },
+            {
+              "id": "INIT_SYSTEM",
+              "name": {
+                "value": "init system"
+              }
+            },
+            {
+              "id": "INITIAL_SYNC",
+              "name": {
+                "value": "initial sync"
+              }
+            },
+            {
+              "id": "INTENT_LOCK",
+              "name": {
+                "value": "intent lock"
+              }
+            },
+            {
+              "id": "INTERFACE_ENDPOINT",
+              "name": {
+                "value": "interface endpoint"
+              }
+            },
+            {
+              "id": "INTERRUPT_POINT",
+              "name": {
+                "value": "interrupt point"
+              }
+            },
+            {
+              "id": "IP_ACCESS_LIST",
+              "name": {
+                "value": "IP access list"
+              }
+            },
+            {
+              "id": "IPV6",
+              "name": {
+                "value": "IPv6"
+              }
+            },
+            {
+              "id": "ISODATE",
+              "name": {
+                "value": "ISODate"
+              }
+            },
+            {
+              "id": "JAVASCRIPT",
+              "name": {
+                "value": "JavaScript"
+              }
+            },
+            {
+              "id": "JOURNAL",
+              "name": {
+                "value": "journal"
+              }
+            },
+            {
+              "id": "JSON",
+              "name": {
+                "value": "JSON"
+              }
+            },
+            {
+              "id": "JSON_DOCUMENT",
+              "name": {
+                "value": "JSON document"
+              }
+            },
+            {
+              "id": "JSON_POINTER",
+              "name": {
+                "value": "JSON pointer"
+              }
+            },
+            {
+              "id": "JSONP",
+              "name": {
+                "value": "JSONP"
+              }
+            },
+            {
+              "id": "JUMBO_CHUNK",
+              "name": {
+                "value": "jumbo chunk"
+              }
+            },
+            {
+              "id": "K_NEAREST_NEIGHBOR_SEARCH",
+              "name": {
+                "value": "K-nearest neighbor search"
+              }
+            },
+            {
+              "id": "KEY_MATERIAL",
+              "name": {
+                "value": "key material"
+              }
+            },
+            {
+              "id": "KEY_VAULT_COLLECTION",
+              "name": {
+                "value": "Key Vault Collection"
+              }
+            },
+            {
+              "id": "KNN_SEARCH",
+              "name": {
+                "value": "KNN search",
+                "synonyms": [
+                  "K N N search",
+                  "K nearest neighbor search"
+                ]
+              }
+            },
+            {
+              "id": "LDAP",
+              "name": {
+                "value": "LDAP"
+              }
+            },
+            {
+              "id": "LEAST_PRIVILEGE",
+              "name": {
+                "value": "least privilege"
+              }
+            },
+            {
+              "id": "LEGACY_COORDINATE_PAIRS",
+              "name": {
+                "value": "legacy coordinate pairs"
+              }
+            },
+            {
+              "id": "LINESTRING",
+              "name": {
+                "value": "LineString"
+              }
+            },
+            {
+              "id": "LITTLE_ENDIAN",
+              "name": {
+                "value": "little-endian"
+              }
+            },
+            {
+              "id": "LOCK",
+              "name": {
+                "value": "lock"
+              }
+            },
+            {
+              "id": "LVM",
+              "name": {
+                "value": "LVM"
+              }
+            },
+            {
+              "id": "MAINTENANCE_WINDOW",
+              "name": {
+                "value": "maintenance window"
+              }
+            },
+            {
+              "id": "MAP_REDUCE",
+              "name": {
+                "value": "map-reduce"
+              }
+            },
+            {
+              "id": "MAPPING_TYPE",
+              "name": {
+                "value": "mapping type"
+              }
+            },
+            {
+              "id": "MD5",
+              "name": {
+                "value": "md5"
+              }
+            },
+            {
+              "id": "MEAN",
+              "name": {
+                "value": "mean"
+              }
+            },
+            {
+              "id": "MEDIAN",
+              "name": {
+                "value": "median"
+              }
+            },
+            {
+              "id": "MEMBER",
+              "name": {
+                "value": "member"
+              }
+            },
+            {
+              "id": "METADATA_COLLECTION",
+              "name": {
+                "value": "metadata collection"
+              }
+            },
+            {
+              "id": "MIME",
+              "name": {
+                "value": "MIME"
+              }
+            },
+            {
+              "id": "MODE",
+              "name": {
+                "value": "mode"
+              }
+            },
+            {
+              "id": "MONGO",
+              "name": {
+                "value": "mongo"
+              }
+            },
+            {
+              "id": "MONGOD",
+              "name": {
+                "value": "mongod",
+                "synonyms": [
+                  "mongo d",
+                  "mongo daemon"
+                ]
+              }
+            },
+            {
+              "id": "MONGODB_CHARTS",
+              "name": {
+                "value": "MongoDB Charts"
+              }
+            },
+            {
+              "id": "MONGODB_SEARCH",
+              "name": {
+                "value": "MongoDB Search",
+                "synonyms": [
+                  "Atlas Search"
+                ]
+              }
+            },
+            {
+              "id": "MONGODB_VECTOR_SEARCH",
+              "name": {
+                "value": "MongoDB Vector Search",
+                "synonyms": [
+                  "Atlas Vector Search",
+                  "vector search"
+                ]
+              }
+            },
+            {
+              "id": "MONGOS",
+              "name": {
+                "value": "mongos",
+                "synonyms": [
+                  "mongo router",
+                  "mongo s"
+                ]
+              }
+            },
+            {
+              "id": "MONGOSH",
+              "name": {
+                "value": "mongosh",
+                "synonyms": [
+                  "mongo sh",
+                  "mongo shell"
+                ]
+              }
+            },
+            {
+              "id": "MULTI_REGION_CLUSTER",
+              "name": {
+                "value": "multi-region cluster"
+              }
+            },
+            {
+              "id": "NAMESPACE",
+              "name": {
+                "value": "namespace"
+              }
+            },
+            {
+              "id": "NAMESPACE_INSIGHTS",
+              "name": {
+                "value": "Namespace Insights"
+              }
+            },
+            {
+              "id": "NATURAL_ORDER",
+              "name": {
+                "value": "natural order"
+              }
+            },
+            {
+              "id": "NETWORK_PARTITION",
+              "name": {
+                "value": "network partition"
+              }
+            },
+            {
+              "id": "NETWORK_PEERING_CONNECTION",
+              "name": {
+                "value": "network peering connection"
+              }
+            },
+            {
+              "id": "NODE",
+              "name": {
+                "value": "node"
+              }
+            },
+            {
+              "id": "NOOP",
+              "name": {
+                "value": "noop"
+              }
+            },
+            {
+              "id": "NVME",
+              "name": {
+                "value": "NVMe",
+                "synonyms": [
+                  "N V M E"
+                ]
+              }
+            },
+            {
+              "id": "NVME_STORAGE",
+              "name": {
+                "value": "NVMe storage"
+              }
+            },
+            {
+              "id": "OBJECT_IDENTIFIER",
+              "name": {
+                "value": "object identifier"
+              }
+            },
+            {
+              "id": "OBJECTID",
+              "name": {
+                "value": "ObjectId",
+                "synonyms": [
+                  "object I D",
+                  "object identifier"
+                ]
+              }
+            },
+            {
+              "id": "OPERATION_LOG",
+              "name": {
+                "value": "operation log"
+              }
+            },
+            {
+              "id": "OPERATION_METADATA",
+              "name": {
+                "value": "operation metadata"
+              }
+            },
+            {
+              "id": "OPERATION_REJECTION_FILTER",
+              "name": {
+                "value": "operation rejection filter"
+              }
+            },
+            {
+              "id": "OPERATION_TIME",
+              "name": {
+                "value": "operation time"
+              }
+            },
+            {
+              "id": "OPERATIONAL_NODE",
+              "name": {
+                "value": "operational node"
+              }
+            },
+            {
+              "id": "OPERATOR",
+              "name": {
+                "value": "operator"
+              }
+            },
+            {
+              "id": "OPLOG",
+              "name": {
+                "value": "oplog"
+              }
+            },
+            {
+              "id": "OPLOG_BUFFER_COLLECTION",
+              "name": {
+                "value": "oplog buffer collection"
+              }
+            },
+            {
+              "id": "OPLOG_HOLE",
+              "name": {
+                "value": "oplog hole"
+              }
+            },
+            {
+              "id": "OPLOG_WINDOW",
+              "name": {
+                "value": "oplog window"
+              }
+            },
+            {
+              "id": "OPTIME",
+              "name": {
+                "value": "optime"
+              }
+            },
+            {
+              "id": "ORDERED_QUERY_PLAN",
+              "name": {
+                "value": "ordered query plan"
+              }
+            },
+            {
+              "id": "ORGANIZATION",
+              "name": {
+                "value": "organization"
+              }
+            },
+            {
+              "id": "ORGANIZATION_ID",
+              "name": {
+                "value": "organization ID"
+              }
+            },
+            {
+              "id": "ORPHANED_CURSOR",
+              "name": {
+                "value": "orphaned cursor"
+              }
+            },
+            {
+              "id": "ORPHANED_DOCUMENT",
+              "name": {
+                "value": "orphaned document"
+              }
+            },
+            {
+              "id": "PASSIVE_MEMBER",
+              "name": {
+                "value": "passive member"
+              }
+            },
+            {
+              "id": "PER_CPU_CACHE",
+              "name": {
+                "value": "per-CPU cache"
+              }
+            },
+            {
+              "id": "PER_THREAD_CACHE",
+              "name": {
+                "value": "per-thread cache"
+              }
+            },
+            {
+              "id": "PERCENTILE",
+              "name": {
+                "value": "percentile"
+              }
+            },
+            {
+              "id": "PERFORMANCE_ADVISOR",
+              "name": {
+                "value": "Performance Advisor"
+              }
+            },
+            {
+              "id": "PID",
+              "name": {
+                "value": "PID",
+                "synonyms": [
+                  "P I D",
+                  "process identifier"
+                ]
+              }
+            },
+            {
+              "id": "PIPE",
+              "name": {
+                "value": "pipe"
+              }
+            },
+            {
+              "id": "PIPELINE",
+              "name": {
+                "value": "pipeline"
+              }
+            },
+            {
+              "id": "PLAN_CACHE_QUERY_SHAPE",
+              "name": {
+                "value": "plan cache query shape"
+              }
+            },
+            {
+              "id": "POINT",
+              "name": {
+                "value": "Point"
+              }
+            },
+            {
+              "id": "POLYGON",
+              "name": {
+                "value": "Polygon"
+              }
+            },
+            {
+              "id": "POST_IMAGE_DOCUMENT",
+              "name": {
+                "value": "post-image document"
+              }
+            },
+            {
+              "id": "POWEROF2SIZES",
+              "name": {
+                "value": "powerOf2Sizes"
+              }
+            },
+            {
+              "id": "PRE_IMAGE_DOCUMENT",
+              "name": {
+                "value": "pre-image document"
+              }
+            },
+            {
+              "id": "PRE_SPLITTING",
+              "name": {
+                "value": "pre-splitting"
+              }
+            },
+            {
+              "id": "PREFIX_COMPRESSION",
+              "name": {
+                "value": "prefix compression"
+              }
+            },
+            {
+              "id": "PRIMARY",
+              "name": {
+                "value": "primary"
+              }
+            },
+            {
+              "id": "PRIMARY_KEY",
+              "name": {
+                "value": "primary key"
+              }
+            },
+            {
+              "id": "PRIMARY_SHARD",
+              "name": {
+                "value": "primary shard"
+              }
+            },
+            {
+              "id": "PRIORITY",
+              "name": {
+                "value": "priority"
+              }
+            },
+            {
+              "id": "PRIVILEGE",
+              "name": {
+                "value": "privilege"
+              }
+            },
+            {
+              "id": "PROJECT",
+              "name": {
+                "value": "project"
+              }
+            },
+            {
+              "id": "PROJECT_ID",
+              "name": {
+                "value": "project ID"
+              }
+            },
+            {
+              "id": "PROJECTION",
+              "name": {
+                "value": "projection"
+              }
+            },
+            {
+              "id": "QUANTIZATION",
+              "name": {
+                "value": "quantization"
+              }
+            },
+            {
+              "id": "QUERY",
+              "name": {
+                "value": "query"
+              }
+            },
+            {
+              "id": "QUERY_FRAMEWORK",
+              "name": {
+                "value": "query framework"
+              }
+            },
+            {
+              "id": "QUERY_OPERATOR",
+              "name": {
+                "value": "query operator"
+              }
+            },
+            {
+              "id": "QUERY_OPTIMIZER",
+              "name": {
+                "value": "query optimizer"
+              }
+            },
+            {
+              "id": "QUERY_PLAN",
+              "name": {
+                "value": "query plan"
+              }
+            },
+            {
+              "id": "QUERY_PREDICATE",
+              "name": {
+                "value": "query predicate"
+              }
+            },
+            {
+              "id": "QUERY_PROFILER",
+              "name": {
+                "value": "Query Profiler"
+              }
+            },
+            {
+              "id": "QUERY_SHAPE",
+              "name": {
+                "value": "query shape"
+              }
+            },
+            {
+              "id": "RANGE",
+              "name": {
+                "value": "range"
+              }
+            },
+            {
+              "id": "RDBMS",
+              "name": {
+                "value": "RDBMS",
+                "synonyms": [
+                  "R D B M S",
+                  "relational database management system"
+                ]
+              }
+            },
+            {
+              "id": "READ_CONCERN",
+              "name": {
+                "value": "read concern"
+              }
+            },
+            {
+              "id": "READ_LOCK",
+              "name": {
+                "value": "read lock"
+              }
+            },
+            {
+              "id": "READ_PREFERENCE",
+              "name": {
+                "value": "read preference"
+              }
+            },
+            {
+              "id": "READ_ONLY_NODE",
+              "name": {
+                "value": "read-only node"
+              }
+            },
+            {
+              "id": "REAL_TIME_PERFORMANCE_PANEL",
+              "name": {
+                "value": "Real-Time Performance Panel"
+              }
+            },
+            {
+              "id": "RECALL",
+              "name": {
+                "value": "recall"
+              }
+            },
+            {
+              "id": "RECOVERING",
+              "name": {
+                "value": "recovering"
+              }
+            },
+            {
+              "id": "REPLICA_SET",
+              "name": {
+                "value": "replica set"
+              }
+            },
+            {
+              "id": "REPLICATION",
+              "name": {
+                "value": "replication"
+              }
+            },
+            {
+              "id": "REPLICATION_LAG",
+              "name": {
+                "value": "replication lag"
+              }
+            },
+            {
+              "id": "RESIDENT_MEMORY",
+              "name": {
+                "value": "resident memory"
+              }
+            },
+            {
+              "id": "RESOURCE",
+              "name": {
+                "value": "resource"
+              }
+            },
+            {
+              "id": "ROLE",
+              "name": {
+                "value": "role"
+              }
+            },
+            {
+              "id": "ROLLBACK",
+              "name": {
+                "value": "rollback"
+              }
+            },
+            {
+              "id": "ROLLING_RESTART",
+              "name": {
+                "value": "rolling restart"
+              }
+            },
+            {
+              "id": "SAN",
+              "name": {
+                "value": "SAN",
+                "synonyms": [
+                  "S A N",
+                  "subject alternative name"
+                ]
+              }
+            },
+            {
+              "id": "SCALAR_QUANTIZATION",
+              "name": {
+                "value": "scalar quantization"
+              }
+            },
+            {
+              "id": "SECONDARY",
+              "name": {
+                "value": "secondary"
+              }
+            },
+            {
+              "id": "SECONDARY_INDEX",
+              "name": {
+                "value": "secondary index"
+              }
+            },
+            {
+              "id": "SECONDARY_MEMBER",
+              "name": {
+                "value": "secondary member"
+              }
+            },
+            {
+              "id": "SEED_LIST",
+              "name": {
+                "value": "seed list"
+              }
+            },
+            {
+              "id": "SELF_MANAGED",
+              "name": {
+                "value": "self-managed"
+              }
+            },
+            {
+              "id": "SEMANTIC_SEARCH",
+              "name": {
+                "value": "semantic search"
+              }
+            },
+            {
+              "id": "SET_NAME",
+              "name": {
+                "value": "set name"
+              }
+            },
+            {
+              "id": "SHARD",
+              "name": {
+                "value": "shard"
+              }
+            },
+            {
+              "id": "SHARD_KEY",
+              "name": {
+                "value": "shard key"
+              }
+            },
+            {
+              "id": "SHARDED_CLUSTER",
+              "name": {
+                "value": "sharded cluster"
+              }
+            },
+            {
+              "id": "SHARDING",
+              "name": {
+                "value": "sharding"
+              }
+            },
+            {
+              "id": "SHARED_CLUSTER",
+              "name": {
+                "value": "shared cluster"
+              }
+            },
+            {
+              "id": "SHELL_HELPER",
+              "name": {
+                "value": "shell helper"
+              }
+            },
+            {
+              "id": "SIMILARITY_FUNCTION",
+              "name": {
+                "value": "similarity function"
+              }
+            },
+            {
+              "id": "SINGLE_MASTER_REPLICATION",
+              "name": {
+                "value": "single-master replication"
+              }
+            },
+            {
+              "id": "SNAPPY",
+              "name": {
+                "value": "snappy"
+              }
+            },
+            {
+              "id": "SNAPSHOT",
+              "name": {
+                "value": "snapshot"
+              }
+            },
+            {
+              "id": "SORT_KEY",
+              "name": {
+                "value": "sort key"
+              }
+            },
+            {
+              "id": "SPLIT",
+              "name": {
+                "value": "split"
+              }
+            },
+            {
+              "id": "SQL",
+              "name": {
+                "value": "SQL",
+                "synonyms": [
+                  "S Q L",
+                  "sequel"
+                ]
+              }
+            },
+            {
+              "id": "SSD",
+              "name": {
+                "value": "SSD",
+                "synonyms": [
+                  "S S D",
+                  "solid state drive"
+                ]
+              }
+            },
+            {
+              "id": "STALE_READ",
+              "name": {
+                "value": "stale read"
+              }
+            },
+            {
+              "id": "STANDALONE",
+              "name": {
+                "value": "standalone"
+              }
+            },
+            {
+              "id": "STASH_COLLECTION",
+              "name": {
+                "value": "stash collection"
+              }
+            },
+            {
+              "id": "STEP_DOWN",
+              "name": {
+                "value": "step down"
+              }
+            },
+            {
+              "id": "STORAGE_ENGINE",
+              "name": {
+                "value": "storage engine"
+              }
+            },
+            {
+              "id": "STORAGE_ORDER",
+              "name": {
+                "value": "storage order"
+              }
+            },
+            {
+              "id": "STRICT_CONSISTENCY",
+              "name": {
+                "value": "strict consistency"
+              }
+            },
+            {
+              "id": "SUBJECT_ALTERNATIVE_NAME",
+              "name": {
+                "value": "Subject Alternative Name"
+              }
+            },
+            {
+              "id": "SYNC",
+              "name": {
+                "value": "sync"
+              }
+            },
+            {
+              "id": "SYSLOG",
+              "name": {
+                "value": "syslog"
+              }
+            },
+            {
+              "id": "TAG",
+              "name": {
+                "value": "tag"
+              }
+            },
+            {
+              "id": "TAG_SET",
+              "name": {
+                "value": "tag set"
+              }
+            },
+            {
+              "id": "TAILABLE_CURSOR",
+              "name": {
+                "value": "tailable cursor"
+              }
+            },
+            {
+              "id": "TEAM",
+              "name": {
+                "value": "team"
+              }
+            },
+            {
+              "id": "TERM",
+              "name": {
+                "value": "term"
+              }
+            },
+            {
+              "id": "TIME_SERIES_COLLECTION",
+              "name": {
+                "value": "time series collection"
+              }
+            },
+            {
+              "id": "TOPOLOGY",
+              "name": {
+                "value": "topology"
+              }
+            },
+            {
+              "id": "TRANSACTION",
+              "name": {
+                "value": "transaction"
+              }
+            },
+            {
+              "id": "TRANSACTION_COORDINATOR",
+              "name": {
+                "value": "transaction coordinator"
+              }
+            },
+            {
+              "id": "TSV",
+              "name": {
+                "value": "TSV",
+                "synonyms": [
+                  "T S V",
+                  "tab separated values"
+                ]
+              }
+            },
+            {
+              "id": "TTL",
+              "name": {
+                "value": "TTL",
+                "synonyms": [
+                  "T T L",
+                  "time to live"
+                ]
+              }
+            },
+            {
+              "id": "UNBOUNDED_ARRAY",
+              "name": {
+                "value": "unbounded array"
+              }
+            },
+            {
+              "id": "UNDERSCORE_ID",
+              "name": {
+                "value": "underscore id",
+                "synonyms": [
+                  "I D field",
+                  "underscore I D",
+                  "underscore identifier"
+                ]
+              }
+            },
+            {
+              "id": "UNIQUE_INDEX",
+              "name": {
+                "value": "unique index"
+              }
+            },
+            {
+              "id": "UNIX_EPOCH",
+              "name": {
+                "value": "unix epoch"
+              }
+            },
+            {
+              "id": "UNORDERED_QUERY_PLAN",
+              "name": {
+                "value": "unordered query plan"
+              }
+            },
+            {
+              "id": "UPSERT",
+              "name": {
+                "value": "upsert"
+              }
+            },
+            {
+              "id": "VECTOR_DATABASE",
+              "name": {
+                "value": "vector database"
+              }
+            },
+            {
+              "id": "VECTOR_INDEX",
+              "name": {
+                "value": "vector index"
+              }
+            },
+            {
+              "id": "VECTOR_SEARCH",
+              "name": {
+                "value": "vector search"
+              }
+            },
+            {
+              "id": "VIRTUAL_MEMORY",
+              "name": {
+                "value": "virtual memory"
+              }
+            },
+            {
+              "id": "WGS84",
+              "name": {
+                "value": "WGS84",
+                "synonyms": [
+                  "W G S 84",
+                  "W G S eighty four"
+                ]
+              }
+            },
+            {
+              "id": "WINDOW_OPERATOR",
+              "name": {
+                "value": "window operator"
+              }
+            },
+            {
+              "id": "WORKING_SET",
+              "name": {
+                "value": "working set"
+              }
+            },
+            {
+              "id": "WRITE_CONCERN",
+              "name": {
+                "value": "write concern"
+              }
+            },
+            {
+              "id": "WRITE_CONFLICT",
+              "name": {
+                "value": "write conflict"
+              }
+            },
+            {
+              "id": "WRITE_LOCK",
+              "name": {
+                "value": "write lock"
+              }
+            },
+            {
+              "id": "ZLIB",
+              "name": {
+                "value": "zlib"
+              }
+            },
+            {
+              "id": "ZONE",
+              "name": {
+                "value": "zone"
+              }
+            },
+            {
+              "id": "ZSTD",
+              "name": {
+                "value": "zstd"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

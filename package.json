@@ -1,12 +1,15 @@
 {
-  "name": "MongoDB-Skill",
-  "version": "1.0.0",
-  "description": "",
+  "name": "mongodb-dictionary-alexa-skill",
+  "version": "2.0.0",
+  "description": "Amazon Alexa skill that provides concise definitions of MongoDB terminology.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "engines": {
+    "node": ">=22 <25"
   },
-  "author": "Ken Alger <ken@kenwalger.com> (http://www.kenwalger.com)",
+  "scripts": {
+    "test": "node --test"
+  },
+  "author": "Ken W. Alger",
   "license": "MIT",
   "dependencies": {
     "ask-sdk-core": "^2.14.0",
