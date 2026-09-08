@@ -9,6 +9,7 @@
   "author": "Ken Alger <ken@kenwalger.com> (http://www.kenwalger.com)",
   "license": "MIT",
   "dependencies": {
-    "alexa-sdk": "^1.0.6"
+    "ask-sdk-core": "^2.14.0",
+    "ask-sdk-model": "^1.86.0"
   }
 }
