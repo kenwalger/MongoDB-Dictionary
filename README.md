@@ -1,73 +1,49 @@
-# MongoDB Dictionary
+# MongoDB Dictionary for Amazon Alexa
 
 An Amazon Alexa skill that provides concise spoken definitions of MongoDB terminology.
 
-MongoDB Dictionary began in 2017 as an experiment in building voice interfaces for developer education. A user could ask Alexa about a MongoDB term and receive a short definition suitable for a spoken response.
+Ask Alexa about a MongoDB concept and the skill responds with a short, voice-friendly explanation.
 
-Examples included:
+Originally created in 2017, MongoDB Dictionary was modernized in 2026 to run on the current Alexa Skills Kit SDK and AWS Lambda runtime, with its terminology refreshed to reflect modern MongoDB.
 
-> "Alexa, ask MongoDB what a collection is."
+## Example Usage
 
-> "Alexa, ask MongoDB to define replica set."
+The skill uses the invocation name `mongo d. b.`.
 
-The original skill was built against MongoDB 3.4-era terminology using Node.js 6 and the first-generation Alexa Skills Kit SDK.
-
-## 2026 Modernization
-
-In September 2026, the project was revisited after Amazon announced that the original Alexa skill would be disabled due to its age and low usage.
-
-Rather than leave the repository in its 2017 state, the implementation was modernized as a small software preservation exercise.
-
-The update included:
-
-* Migrating from Node.js 6.10 to Node.js 24
-* Migrating from the original `alexa-sdk` package to ASK SDK v2
-* Replacing the legacy callback-based Lambda integration with an asynchronous handler compatible with Node.js 24
-* Refreshing the MongoDB terminology from the current MongoDB documentation
-* Expanding the dictionary to more than 300 terms
-* Adding terminology for Atlas, aggregation, replication, sharding, encryption, MongoDB Search, Vector Search, and other modern MongoDB capabilities
-* Adding speech-friendly aliases for acronyms and technical terminology
-* Adding automated tests for the core Alexa request handlers
-* Updating project metadata and documentation
-
-The modernized Lambda implementation successfully runs on Node.js 24 and passes the project's automated test suite.
-
-## Project Status
-
-**Retired.**
-
-The original Alexa skill was published in 2017. During the 2026 modernization, the underlying Lambda application was successfully migrated and tested, but the historical Alexa interaction model was no longer available in the Alexa Developer Console.
-
-Because invocation names for previously published skills cannot be changed, recreating the voice model would require publishing a new Alexa skill. Given the limited usefulness of maintaining a dedicated MongoDB dictionary skill today, the decision was made to retire the Alexa application rather than create and certify a replacement.
-
-The repository remains available as an example of:
-
-* Early voice-interface development for technical education
-* An Alexa Skills Kit application
-* AWS Lambda integration
-* Maintaining and modernizing a small legacy Node.js application
-* Migrating software across nearly a decade of platform and runtime changes
-
-## How It Works
-
-The skill uses a simple request pipeline:
+Try questions such as:
 
 ```text
-Alexa request
-    |
-    v
-ASK SDK request handler
-    |
-    v
-MongoDB term lookup
-    |
-    v
-Concise spoken definition
+Alexa, ask mongo d. b. what is collection
+Alexa, ask mongo d. b. what is replica set
+Alexa, ask mongo d. b. what is aggregation pipeline
+Alexa, ask mongo d. b. what is vector search
+Alexa, ask mongo d. b. what is Atlas
 ```
 
-Definitions are stored locally in `definitions.json`, allowing the skill to answer requests without an external database or API.
+Example response:
 
-The interaction model uses a `GetDefinition` intent with a `Term` slot containing MongoDB terminology and speech-friendly aliases.
+> **Collection:** A named group of MongoDB documents within a database, roughly analogous to a table in a relational database.
+
+## What's Included
+
+MongoDB Dictionary contains more than 300 MongoDB terms and spoken aliases covering topics including:
+
+* MongoDB fundamentals
+* Documents and collections
+* CRUD operations
+* Aggregation
+* Indexes
+* Replication and replica sets
+* Sharding
+* Transactions
+* Security and encryption
+* MongoDB Atlas
+* MongoDB Search
+* MongoDB Vector Search
+* Embeddings and semantic search
+* Legacy MongoDB terminology
+
+Definitions are intentionally concise and written for spoken delivery rather than copied directly from product documentation.
 
 ## Project Structure
 
@@ -79,93 +55,110 @@ The interaction model uses a `GetDefinition` intent with a `Term` slot containin
 ├── responses.json
 ├── interaction-model.json
 ├── package.json
-├── package-lock.json
-└── README.md
+└── package-lock.json
 ```
 
 ### `index.js`
 
-Implements the Alexa request handlers and AWS Lambda entry point using ASK SDK v2.
+AWS Lambda entry point and Alexa request handlers.
+
+The skill uses ASK SDK v2 and an asynchronous Lambda handler compatible with the Node.js 24 runtime.
+
+### `definitions.json`
+
+The MongoDB terminology dataset used by the skill.
+
+Terms are normalized for case-insensitive lookup, with aliases included for terminology that Alexa may hear or transcribe in different ways.
+
+### `responses.json`
+
+Common conversational responses for launching, helping, and exiting the skill.
+
+### `interaction-model.json`
+
+Alexa custom interaction model containing the `GetDefinition` intent, `Term` slot, sample utterances, and MongoDB terminology slot values.
 
 ### `index.test.js`
 
-Tests core behavior including:
+Automated tests covering launch requests, successful definition lookups, modern terminology, unknown terms, and missing slots.
 
-* Launch requests
-* Known-term lookup
-* Modern MongoDB terminology
-* Unknown terms
-* Missing term slots
+## Technology
 
-Run the tests with:
+* Node.js 24
+* ASK SDK for Node.js v2
+* AWS Lambda
+* Amazon Alexa Custom Skills
+* Node.js built-in test runner
+
+## Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the automated tests:
 
 ```bash
 npm test
 ```
 
-### `definitions.json`
+The Lambda function handler is:
 
-Contains concise, voice-oriented descriptions of MongoDB terminology.
+```text
+index.handler
+```
 
-The definitions are original summaries informed by terminology in the current MongoDB documentation rather than reproductions of MongoDB documentation text.
+The application uses an explicit asynchronous handler and invokes the ASK SDK skill directly:
 
-### `responses.json`
+```javascript
+exports.handler = async (event, context) => {
+  return skill.invoke(event, context);
+};
+```
 
-Contains common conversational responses used by the skill.
+This avoids the callback-based Lambda handler pattern used by older versions of the Alexa SDK.
 
-### `interaction-model.json`
+## A Little History
 
-Contains the reconstructed Alexa interaction model, including the `GetDefinition` intent, `Term` slot, MongoDB terminology, and speech-friendly aliases.
+MongoDB Dictionary began in 2017 as an experiment in using voice interfaces for developer education.
 
-This model was created as part of the 2026 modernization but was not published as a replacement Alexa skill.
+The original version ran on Node.js 6.10, used the first-generation `alexa-sdk`, and contained terminology based largely on the MongoDB 3.4-era glossary.
 
-## Technology
+Nine years later, the Alexa platform, Node.js, AWS Lambda, and MongoDB itself had all changed substantially.
 
-The final implementation uses:
+In September 2026, the project was modernized rather than retired:
 
-* Node.js 24
-* ASK SDK for Node.js v2
-* AWS Lambda
-* Node.js built-in test runner
-* JSON-based local terminology data
+* Migrated from Node.js 6.10 to Node.js 24
+* Migrated from `alexa-sdk` v1 to ASK SDK v2
+* Replaced the original callback-based Lambda integration with an async handler
+* Reconstructed the Alexa interaction model
+* Preserved the original `mongo d. b.` invocation name
+* Expanded the terminology dataset to more than 300 terms
+* Added modern MongoDB concepts including Atlas, Search, Vector Search, embeddings, and semantic search
+* Added speech-friendly aliases for acronyms and commonly misrecognized terms
+* Added automated request-handler tests
+* Verified the modernized skill through AWS Lambda and the Alexa Developer Console
 
-## History
+And, somehow, it still works.
 
-### 2017
+## About the Definitions
 
-* Created the original MongoDB Dictionary Alexa skill
-* Built with Node.js 6.10
-* Used the original Alexa SDK for Node.js
-* Covered MongoDB 3.4-era terminology
-* Published through the Amazon Alexa Skills ecosystem
+The terminology in this project is informed by MongoDB's public documentation and glossary, but the definitions are independently written and optimized for concise spoken responses.
 
-### 2026
-
-* Revisited the project after receiving Amazon's retirement notice
-* Migrated the implementation to Node.js 24
-* Migrated to ASK SDK v2
-* Updated the AWS Lambda handler for the modern asynchronous runtime
-* Refreshed and substantially expanded the MongoDB terminology
-* Added automated tests
-* Successfully deployed and tested the modernized Lambda implementation
-* Retired the Alexa skill rather than publish a replacement skill
-
-## Why Keep This Repository?
-
-Software does not need to remain a production application forever to be useful.
-
-This repository captures a small piece of the 2017 voice-assistant era and, nine years later, provides a practical example of what it takes to bring an application across multiple generations of runtimes, SDKs, APIs, and platform requirements.
-
-Sometimes maintaining old software means keeping it alive.
-
-Sometimes it means bringing it forward far enough to understand what still matters, documenting what changed, and then knowing when to call it complete.
+For authoritative and complete MongoDB documentation, refer to the official [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/glossary/).
 
 ## Disclaimer
 
 MongoDB is a trademark of MongoDB, Inc.
 
-This project is an independent educational project and is not affiliated with, endorsed by, or sponsored by MongoDB, Inc. or Amazon.
+This is an independent educational project and is not an official MongoDB product or an indication of endorsement by MongoDB, Inc.
+
+Amazon, Alexa, and AWS are trademarks of Amazon.com, Inc. or its affiliates.
 
 ## Author
 
-Ken W. Alger
+Created by **Ken W. Alger** in 2017.
+
+Modernized in 2026.
